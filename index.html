@@ -55,7 +55,7 @@ function horribleGlobalClosure() {
       }
    
      
-      base_png = new Image();
+      var base_png = new Image();
       base_png.src = 'IMG-20170511-WA0025_burned.png';
       base_png.onload = function(){
           ctx.drawImage(base_png, 10, h);
