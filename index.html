@@ -101,12 +101,18 @@ function horribleGlobalClosure() {
   var ctx=c.getContext('2d');
   var i = 0;
   function draw(drawables) {
-    ctx.clearRect(0, 0, c.width, c.height);
+ 
+    base_image = new Image();
+    base_image.src = 'thumb-350-654644.jpg';
+    base_image.onload = function(){
+      ctx.drawImage(base_image, c.width, c.height);
+    }
+   
     for (drawable of drawables) {
       drawable.draw(ctx);
     }
     lupita.draw(ctx);
-    ctx.fillText('speed: ' + step, c.width - 200, 50);
+    ctx.fillText('peed: ' + step, c.width - 200, 50);
     ctx.fillText('amorexia', c.width - 400, 100);
   }
   function physics(objects) {
