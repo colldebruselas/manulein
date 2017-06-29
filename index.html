@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Lupita</title>
+<link rel="manifest" href="/lupita/manifest.json">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no">
+<meta name="robots" content="noindex, nofollow">
+
+<style type="text/css">
+html{
+  font-size: 4em;
+}
+canvas{
+  position:absolute;
+  top:0px; left:0px;
+}
+</style>
+</head>
+<body>
+<canvas id=c></canvas>
+
+<script type="text/javascript">
+function horribleGlobalClosure() {
+  var debug = false;
+  class Lupita {
+    constructor() {
+      this.max = 14;
+      this.h = 0;
+    }
+    get step() {
+      return Math.log(step) / 2;
+    }
+    jump() {
+      if (this.h === 0) {
+        this.h = this.step;
+      }
+    }
+    
+    next() {
+      if (this.h > 0) {
+        if (this.h > 2*this.max)
+          this.h = 0;
+        else
+          this.h = this.h + this.step;
+      }
+    }
+    
+    draw(ctx) {
+      const height = 54;
+      // let h = groundLevel - (this.max - Math.abs(this.h % (2*this.max) - this.max));
+      let h = groundLevel + Math.pow(this.h - this.max, 2) - this.max * this.max;
+      if (debug) {
+        ctx.fillRect(18, h + 10 - height, 50, height);
+      }
+      ctx.font = '48px serif';
+      ctx.fillText('🐺', 10, h);
+    }
+    collide(obj) {
+      let h = groundLevel + Math.pow(this.h - this.max, 2) - this.max * this.max;
+      var rect1 = {x: 18, y: h + 10 - 54, width: 50, height: 54}
+      var rect2 = obj.rect();
+      return rect1.x < rect2.x + rect2.width &&
+            rect1.x + rect1.width > rect2.x &&
+            rect1.y < rect2.y + rect2.height &&
+            rect1.height + rect1.y > rect2.y;
+    }
+  }
+  class Tree {
+    constructor(step) {
+      this.step = Math.log(step) * 4;
+      this.position = 500;
+      this.height = 27;
+    }
+    next() {
+      this.position = this.position - this.step;
+      if (this.position < -50) {
+        this.cleanable = true;
+      }
+    }
+    draw(ctx) {
+      if (debug) {
+        ctx.fillRect(this.position + 2, groundLevel + 5 - this.height, 24, this.height);
+      }
+      ctx.font = '24px serif';
+      ctx.fillText('🌲', this.position, groundLevel);
+    }
+    rect() {
+      return { x: this.position + 2,
+              y: groundLevel + 5 - this.height,
+              width: 24,
+              height: this.height}
+    }
+  }
+  var w=window.innerWidth,
+      h=window.innerHeight,
+      amount=((w*h)/10000)|0;
+  c.width=w;
+  c.height=h;
+  const groundLevel = c.height - 10;
+  var ctx=c.getContext('2d');
+  var i = 0;
+  function draw(drawables) {
+    ctx.clearRect(0, 0, c.width, c.height);
+    for (drawable of drawables) {
+      drawable.draw(ctx);
+    }
+    lupita.draw(ctx);
+    ctx.fillText('speed: ' + step, c.width - 200, 50);
+  }
+  function physics(objects) {
+    lupita.next();
+    for (obj of objects) {
+      obj.next(ctx);
+    }
+    for (obj of objects) {
+      if (lupita.collide(obj)) {
+        paused = true;
+      }
+    }
+  }
+  function cleanup(objects) {
+    for (var i = objects.length; i--;) {
+      if (objects[i].cleanable) {
+        objects.splice(i, 1);
+      }
+    }
+  }
+  let paused = false;
+  let step = 4;
+  function main(objects) {
+    draw(objects);
+    physics(objects);
+    cleanup(objects);
+    if (objects.length === 0) {
+      objects.push(new Tree(step++));
+    }
+    if (!paused) {
+      requestAnimationFrame(() => main(objects));
+    }
+    else{
+      horribleGlobalClosure();
+    }
+  }
+  var lupita = new Lupita();
+  window.onkeydown = () => lupita.jump();
+  window.ontouchend = () => lupita.jump();
+  main([]);
+}
+document.addEventListener("DOMContentLoaded", () => {
+  horribleGlobalClosure();
+});
+</script>
+</body>
+</html>
