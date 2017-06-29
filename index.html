@@ -53,8 +53,15 @@ function horribleGlobalClosure() {
       if (debug) {
         ctx.fillRect(18, h + 10 - height, 50, height);
       }
-      ctx.font = '48px serif';
-      ctx.fillText('IMG-20170511-WA0025_burned.png', 10, h);
+   
+     
+      base_image = new Image();
+      base_image.src = 'IMG-20170511-WA0025_burned.png';
+      base_image.onload = function(){
+          ctx.drawImage(base_image, 10, h);
+      
+      }
+
     }
     collide(obj) {
       let h = groundLevel + Math.pow(this.h - this.max, 2) - this.max * this.max;
