@@ -105,15 +105,14 @@ function horribleGlobalClosure() {
     base_image = new Image();
     base_image.src = 'thumb-350-654644.jpg';
     base_image.onload = function(){
-      ctx.drawImage(base_image, c.width, c.height);
+      ctx.drawImage(base_image, 100, 100);
     }
    
     for (drawable of drawables) {
       drawable.draw(ctx);
     }
     lupita.draw(ctx);
-    ctx.fillText('peed: ' + step, c.width - 200, 50);
-    ctx.fillText('amorexia', c.width - 400, 100);
+    ctx.fillText('speed: ' + step, c.width - 200, 50)
   }
   function physics(objects) {
     lupita.next();
