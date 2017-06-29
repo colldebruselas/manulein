@@ -1,0 +1,8 @@
+{
+  "short_name": "Lupita",
+  "name": "Lupita",
+  "icons": [], 
+  "start_url": "/lupita/index.html",
+  "display": "fullscreen",
+  "orientation": "portrait"
+}
