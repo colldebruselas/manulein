@@ -105,7 +105,8 @@ function horribleGlobalClosure() {
     base_image = new Image();
     base_image.src = 'thumb-350-654644.jpg';
     base_image.onload = function(){
-      ctx.drawImage(base_image, 100, 100);
+      ctx.drawImage(base_image, 0, 0, c.width, c.height);
+      
     }
    
     for (drawable of drawables) {
