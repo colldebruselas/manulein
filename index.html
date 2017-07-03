@@ -82,7 +82,7 @@ function horribleGlobalClosure() {
       this.position = 500;
       this.height = 27;
     }
-    next() {
+   next() {
       this.position = this.position - this.step;
       if (this.position < -50) {
         this.cleanable = true;
@@ -92,9 +92,8 @@ function horribleGlobalClosure() {
       if (debug) {
         ctx.fillRect(this.position + 2, groundLevel + 5 - this.height, 24, this.height);
       }
-      
-      
-        
+      ctx.font = '24px serif';
+      ctx.fillText('🥑', this.position, groundLevel);
     }
     rect() {
       return { x: this.position + 2,
