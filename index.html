@@ -56,16 +56,13 @@ function horribleGlobalClosure() {
       }
    
      
-      draw(ctx) {
-      if (debug) {
-        ctx.fillRect(this.position + 2, groundLevel + 5 - this.height, 24, this.height);
-      }
-      ctx.font = '24px serif';
-      ctx.fillText('🥑', this.position, groundLevel);
-      
-      }
 
+
+
+      ctx.font = '28px serif';
+      ctx.fillText('🥑', 10,h);
     }
+    
     collide(obj) {
       let h = groundLevel + Math.pow(this.h - this.max, 2) - this.max * this.max;
       var rect1 = {x: 18, y: h + 10 - 54, width: 50, height: 54}
