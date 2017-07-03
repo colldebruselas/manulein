@@ -92,8 +92,13 @@ function horribleGlobalClosure() {
       if (debug) {
         ctx.fillRect(this.position + 2, groundLevel + 5 - this.height, 24, this.height);
       }
-      ctx.font = '24px serif';
-      ctx.fillText('🥑', this.position, h-85);
+      var repollo_image = new Image();
+
+      repollo_image.onload = function(){
+        ctx.drawImage(repollo_image, this.position, h-85);
+      }     
+      repollo_image.src = 'repollo_burned.png';
+
     }
     rect() {
       return { x: this.position + 2,
