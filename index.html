@@ -123,10 +123,10 @@ function horribleGlobalClosure() {
       drawable.draw(ctx);
     }
     lupita.draw(ctx);
+    ctx.font = '24px serif'
     ctx.fillText('Colles: ' + step, c.width - 100, 100)
     ctx.fillText('___', c.width - 100, c.height -150)
-    ctx.fillText('___', c.width - 100, c.height -10)
-    ctx.font = '24px serif';
+    ctx.fillText('___', c.width - 100, c.height -10);
   }
   function physics(objects) {
     lupita.next();
