@@ -55,14 +55,17 @@ function horribleGlobalClosure() {
         ctx.fillRect(18, h + 10 - height, 50, height);
       }
    
-     
+      var base_imag = new Image();
 
+      base_imag.onload = function(){
+        ctx.drawImage(base_imag, 10, h-50,30, 50);
+      }     
+      base_imag.src = 'IMG-20170511-WA0025_burned.png';
 
-
-      ctx.font = '28px serif';
-      ctx.fillText('🥑', 10,h);
+      ctx.font = '12px serif';
+      ctx.fillText('🥑', 15,h-50);
     }
-    
+
     collide(obj) {
       let h = groundLevel + Math.pow(this.h - this.max, 2) - this.max * this.max;
       var rect1 = {x: 18, y: h + 10 - 54, width: 50, height: 54}
@@ -120,9 +123,9 @@ function horribleGlobalClosure() {
       drawable.draw(ctx);
     }
     lupita.draw(ctx);
-    ctx.fillText('Colles: ' + step, c.width - 250, 100)
-    ctx.fillText('___', c.width - 250, c.height -150)
-    ctx.fillText('___', c.width - 250, c.height -10)
+    ctx.fillText('Colles: ' + step, c.width - 100, 100)
+    ctx.fillText('___', c.width - 100, c.height -150)
+    ctx.fillText('___', c.width - 100, c.height -10)
   }
   function physics(objects) {
     lupita.next();
