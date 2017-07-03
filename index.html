@@ -90,8 +90,12 @@ function horribleGlobalClosure() {
       if (debug) {
         ctx.fillRect(this.position + 2, groundLevel + 5 - this.height, 24, this.height);
       }
-      ctx.font = '24px serif';
-      ctx.fillText('🌲', this.position, groundLevel);
+      var repollo_png = new Image();
+      repollo_png.src = 'repollo_burned.png';
+      repollo_png.onload = function(){
+          ctx.drawImage(repollo_png, this.position, groundLevel); 
+      
+        
     }
     rect() {
       return { x: this.position + 2,
@@ -121,7 +125,7 @@ function horribleGlobalClosure() {
       drawable.draw(ctx);
     }
     lupita.draw(ctx);
-    ctx.fillText('speed: ' + step, c.width - 100, 50)
+    ctx.fillText('Colles: ' + step, c.width - 100, 100)
     ctx.fillText('___', c.width - 100, c.height -150)
     ctx.fillText('___', c.width - 100, c.height -10)
   }
