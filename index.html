@@ -56,10 +56,12 @@ function horribleGlobalClosure() {
       }
    
      
-      var base_png = new Image();
-      base_png.src = 'IMG-20170511-WA0025_burned.png';
-      base_png.onload = function(){
-          ctx.drawImage(base_png, 10, h-150, 50, h-10);
+      draw(ctx) {
+      if (debug) {
+        ctx.fillRect(this.position + 2, groundLevel + 5 - this.height, 24, this.height);
+      }
+      ctx.font = '24px serif';
+      ctx.fillText('🥑', this.position, groundLevel);
       
       }
 
@@ -112,7 +114,7 @@ function horribleGlobalClosure() {
   function draw(drawables) {
  
     base_image = new Image();
-    base_image.src = 'pixelart.gif';
+    base_image.src = 'bLxcjh3.png';
     base_image.onload = function(){
       ctx.drawImage(base_image, 0, 0, c.width, c.height);
       
