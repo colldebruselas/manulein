@@ -162,7 +162,8 @@ function horribleGlobalClosure() {
       requestAnimationFrame(() => main(objects));
     }
     else{
-      horribleGlobalClosure();
+      ctx.fillText('GAME OVER', c.width/2, c.height/2);
+    
     }
   }
   var lupita = new Lupita();
