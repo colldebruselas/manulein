@@ -23,6 +23,7 @@ canvas{
   
   <img id=coll src="IMG-20170511-WA0025_burned.png">
   <img id=repollo src="repollo_burned.png">
+  <img id=fondo src="bLxcjh3.png">
 
 <script type="text/javascript">
 function horribleGlobalClosure() {
@@ -114,11 +115,9 @@ function horribleGlobalClosure() {
   var i = 0;
   function draw(drawables) {
  
-    base_image = new Image();
-    base_image.src = 'bLxcjh3.png';
-    base_image.onload = function(){
-      ctx.drawImage(base_image, 0, 0, c.width, c.height);
-      
+    var imgfondo = document.getElementById("fondo");
+      ctx.drawImage(imgfondo, 0, 0, c.width, c.height);
+  
     }
    
     for (drawable of drawables) {
