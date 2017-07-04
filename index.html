@@ -163,12 +163,12 @@ function horribleGlobalClosure() {
       requestAnimationFrame(() => main(objects));
     }
    else{
-      ctx.font = '70px serif';
+      ctx.font = '65px serif';
       ctx.fillStyle = "#800000";
       ctx.textAlign = "center"
       ctx.fillText('GAME OVER', c.width/2, c.height/2);
-      ctx.font = '30px serif';
-      ctx.fillText('Esquivaste ' + (step-5) + ' Colles, Coll!', c.width/2, c.height/2 +100);
+      ctx.font = '28px serif';
+      ctx.fillText('ESQUIVASTE ' + (step-5) + ' COLLES, COLL!', c.width/2, c.height/2 +100);
       gameover = true;
     }
   }
