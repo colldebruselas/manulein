@@ -117,7 +117,6 @@ function horribleGlobalClosure() {
     var imgfondo = document.getElementById("fondo");
       ctx.drawImage(imgfondo, 0, 0, c.width, c.height);
   
-    }
    
     for (drawable of drawables) {
       drawable.draw(ctx);
@@ -166,6 +165,7 @@ function horribleGlobalClosure() {
   window.onkeydown = () => lupita.jump();
   window.ontouchend = () => lupita.jump();
   main([]);
+  }
 
 document.addEventListener("DOMContentLoaded", () => {
   horribleGlobalClosure();
