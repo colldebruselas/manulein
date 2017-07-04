@@ -20,6 +20,9 @@ canvas{
 </head>
 <body>
 <canvas id=c></canvas>
+  
+  <img id=coll src="IMG-20170511-WA0025_burned.png">
+<img id=repollo src="repollo_burned.png">
 
 <script type="text/javascript">
 function horribleGlobalClosure() {
@@ -55,10 +58,8 @@ function horribleGlobalClosure() {
         ctx.fillRect(18, h + 10 - height, 50, height);
       }
    
-      var base_imag = new Image();
-
-      base_imag.onload = function(){
-        ctx.drawImage(base_imag, 18, h-155, 60, 100);
+      var imgcoll = document.getElementById("coll");
+      ctx.drawImage(imgcoll, 10, h, 100, 100);
       }     
       base_imag.src = 'IMG-20170511-WA0025_burned.png';
 
