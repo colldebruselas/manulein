@@ -64,10 +64,10 @@ function horribleGlobalClosure() {
       }
    
       var imgcoll = document.getElementById("coll");
-      ctx.drawImage(imgcoll, 10, h-170, 80, 100); 
+      ctx.drawImage(imgcoll, 10, h-160, 80, 100); 
 
       ctx.font = '12px serif';
-      ctx.fillText('🥑', 38, h-150);
+      ctx.fillText('🥑', 38, h-160);
     }
 
     collide(obj) {
@@ -98,7 +98,7 @@ function horribleGlobalClosure() {
       }
      
       var imgrepollo = document.getElementById("repollo");
-      ctx.drawImage(imgrepollo, this.position, h-120, 50, 50);
+      ctx.drawImage(imgrepollo, this.position, h-125, 50, 50);
 
     }
     rect() {
@@ -127,7 +127,7 @@ function horribleGlobalClosure() {
     }
     lupita.draw(ctx);
     ctx.font = '30px serif'
-    ctx.fillText('Colls: ' + step, c.width - 120, 100)
+    ctx.fillText('Colles: ' + step, c.width - 120, 100)
     ctx.fillText('___', c.width - 120, c.height -150)
     ctx.fillText('___', c.width - 120, c.height -10);
   }
