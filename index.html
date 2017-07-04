@@ -22,7 +22,7 @@ canvas{
 <canvas id=c></canvas>
   
   <img id=coll src="IMG-20170511-WA0025_burned.png">
-<img id=repollo src="repollo_burned.png">
+  <img id=repollo src="repollo_burned.png">
 
 <script type="text/javascript">
 function horribleGlobalClosure() {
@@ -59,9 +59,8 @@ function horribleGlobalClosure() {
       }
    
       var imgcoll = document.getElementById("coll");
-      ctx.drawImage(imgcoll, 10, h, 100, 100);
-      }     
-      base_imag.src = 'IMG-20170511-WA0025_burned.png';
+      ctx.drawImage(imgcoll, 10, h-150, 60, 100);
+      }    
 
       ctx.font = '12px serif';
       ctx.fillText('🥑', 28, h-150);
@@ -93,12 +92,9 @@ function horribleGlobalClosure() {
       if (debug) {
         ctx.fillRect(this.position + 2, groundLevel + 5 - this.height, 24, this.height);
       }
-      var repollo_image = new Image();
-
-      repollo_image.onload = function(){
-        ctx.drawImage(repollo_image, this.position, h-85, 30, 30);
-      }     
-      repollo_image.src = 'repollo_burned.png';
+     
+      var imgrepollo = document.getElementById("repollo");
+      ctx.drawImage(imgrepollo, this.position, h-85, 30, 30);
 
     }
     rect() {
