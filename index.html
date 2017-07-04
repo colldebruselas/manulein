@@ -163,18 +163,18 @@ function horribleGlobalClosure() {
       requestAnimationFrame(() => main(objects));
     }
    else{
-      ctx.font = '100px serif';
+      ctx.font = '80px serif';
       ctx.fillStyle = "#800000";
       ctx.textAlign = "center"
       ctx.fillText('GAME OVER', c.width/2, c.height/2);
-      ctx.font = '50px serif';
+      ctx.font = '20px serif';
       ctx.fillText('Esquivaste ' + (step-5) + ' Colles, Coll!', c.width/2, c.height/2 +100);
       gameover = true;
     }
   }
   var lupita = new Lupita();
   window.onkeydown = () => gameover ? horribleGlobalClosure() : lupita.jump();
-  window.ontouchend = () => lupita.jump();
+  window.ontouchend = () => gameover ? horribleGlobalClosure() : lupita.jump();
   main([]);
   }
 
