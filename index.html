@@ -161,16 +161,16 @@ function horribleGlobalClosure() {
     if (!paused) {
       requestAnimationFrame(() => main(objects));
     }
-    else{
+   else{
       ctx.font = '100px serif';
       ctx.fillStyle = "red";
-      ctx.textAlign = "center";
+      ctx.textAlign = "center"
       ctx.fillText('GAME OVER', c.width/2, c.height/2);
-    
+      gameover = true;
     }
   }
   var lupita = new Lupita();
-  window.onkeydown = () => lupita.jump();
+  window.onkeydown = () => gameover ? horribleGlobalClosure() : lupita.jump();
   window.ontouchend = () => lupita.jump();
   main([]);
   }
