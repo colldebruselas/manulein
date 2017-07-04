@@ -162,6 +162,9 @@ function horribleGlobalClosure() {
       requestAnimationFrame(() => main(objects));
     }
     else{
+      ctx.font = '100px serif';
+      ctx.fillStyle = "red";
+      ctx.textAlign = "center";
       ctx.fillText('GAME OVER', c.width/2, c.height/2);
     
     }
