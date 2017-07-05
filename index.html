@@ -152,12 +152,20 @@ function horribleGlobalClosure() {
   }
   let paused = false;
   let step = 4;
-  function main(objects) {
-    draw(objects);
-    physics(objects);
-    cleanup(objects);
-    if (objects.length === 0) {
-      objects.push(new Tree(step++));
+    var esperandoRepollo = false;
+    function main(objects) {
+      draw(objects);
+      physics(objects);
+      cleanup(objects);
+      if (objects.length ===  0 && !esperandoRepollo) {
+        esperandoRepollo = true;
+        setTimeout(
+        function(){
+         objects.push(new Tree(step++));
+         esperandoRepollo = false;
+        },
+        Math.random() * 800 + 200
+      );
     }
     if (!paused) {
       requestAnimationFrame(() => main(objects));
