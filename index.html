@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Cabeza de Coll</title>
+<title>Manulein</title>
 <link rel="manifest" href="/lupita/manifest.json">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no">
 <link rel="shortcut icon" href="repollo_burned.png">
@@ -26,7 +26,7 @@ img{
 <canvas id=c></canvas>
   
   <img id=coll src="IMG-20170511-WA0025_burned.png">
-  <img id=repollo src="valijas_burned.png">
+  <img id=valijas src="valijas_burned.png">
   <img id=fondo src="mapamundi.jpg">
 
 <script type="text/javascript">
@@ -95,8 +95,8 @@ function horribleGlobalClosure() {
         ctx.fillRect(this.position + 2, groundLevel + 5 - this.height, 24, this.height);
       }
      
-      var imgrepollo = document.getElementById("repollo");
-      ctx.drawImage(imgrepollo, this.position, h-125, 50, 50);
+      var imgvalijas = document.getElementById("valijas");
+      ctx.drawImage(imgvalijas, this.position, h-125, 80, 50);
 
     }
     rect() {
