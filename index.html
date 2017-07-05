@@ -26,7 +26,7 @@ img{
 <canvas id=c></canvas>
   
   <img id=coll src="IMG-20170511-WA0025_burned.png">
-  <img id=repollo src="repollo_burned.png">
+  <img id=repollo src="valijas_burned.png">
   <img id=fondo src="mapamundi.jpg">
 
 <script type="text/javascript">
@@ -173,7 +173,9 @@ function horribleGlobalClosure() {
       ctx.textAlign = "center"
       ctx.fillText('GAME OVER', c.width/2, c.height/2);
       ctx.font = '28px serif';
-      ctx.fillText('ESQUIVASTE ' + (step-5) + ' COLLES, COLL!', c.width/2, c.height/2 +100);
+      ctx.fillText('ESQUIVASTE ' + (step-5) + ' VALIJAS!', c.width/2, c.height/2 +50);
+      ctx.font = '20px serif';
+      ctx.fillText('AHORA PODÉS IRTE A ESPAÑA!', c.width/2, c.height/2 +70);
       gameover = true;
     }
   }
