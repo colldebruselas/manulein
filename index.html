@@ -39,7 +39,7 @@ function horribleGlobalClosure() {
       this.h = 0;
     }
     get step() {
-      return Math.floor(Math.random()*6+1);
+      return Math.log(step) / 2;
     }
     jump() {
       if (this.h === 0) {
@@ -83,7 +83,7 @@ function horribleGlobalClosure() {
   }
   class Tree {
     constructor(step) {
-      this.step = Math.log(step) * 4;
+      this.step = Math.floor(Math.random(step)*6+1);
       this.position = 500;
       this.height = 27;
     }
