@@ -83,7 +83,7 @@ function horribleGlobalClosure() {
   }
   class Tree {
     constructor(step) {
-      this.step = Math.floor(Math.random(step)*6+1);
+      this.step = Math.log(step) * 4;
       this.position = 500;
       this.height = 27;
     }
